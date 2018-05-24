@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+  <ui:composition template="./WEB-INF/templates/plantilla.xhtml">
+    <ui:define name="title">Evento</ui:define>
+        
+        
+            <ui:define name="contenido">
+
+                  <h:form> 
+                      <p:dataScroller value="#{eventoBean.getEventos()}" var="evento">
+                          <f:facet name="header">
+                            Eventos
+                          </f:facet>
+
+                     <f:facet name="loader">
+                            <p:commandButton type="button" value="Más" icon="ui-icon-circle-triangle-s"/>
+                        </f:facet>
+
+                          <h:panelGrid columns="2" style="width:100%" >
+                            <p:outputPanel>
+                                <h:panelGrid columns="2" cellpadding="5">
+                                    <h:outputText value="Nombre:" />
+                                    <h:commandLink value="#{evento.nombre}" action="#{eventoBean.ver(evento)}" style="font-weight: bold"/>
+
+                                    <h:outputText value="Fecha:" />
+                                    <h:outputText value="#{evento.seccion}" style="font-weight: bold"/>
+
+                                    <h:outputText value="Descripción:" />
+                                    <h:outputText value="#{evento.descripcion}" style="font-weight: bold"/>
+                                    
+                                    <h:outputText value="Seccion:" />
+                                    <h:outputText value="#{evento.seccion}" style="font-weight: bold"/>
+                                    
+                                     <h:outputText value="Precio:" />
+                                     <h:outputText value="#{evento.precio}" style="font-weight: bold"/>
+                                     
+                                     <tr><td><h:button class="ColorBoton" outcome="modificarEvento.xhtml" value="Modificar"></h:button></td></tr>
+                                    
+                                </h:panelGrid>
+                                <br/>
+                            </p:outputPanel>
+                          </h:panelGrid>
+                      </p:dataScroller>
+                </h:form>
+                
+                
+            </ui:define>
+  </ui:composition>
+
+</html>

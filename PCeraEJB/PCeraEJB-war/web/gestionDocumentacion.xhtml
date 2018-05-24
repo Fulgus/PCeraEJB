@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition template="./WEB-INF/templates/plantilla.xhtml">
+        <ui:define name="title">Perfil Administrador</ui:define>
+        <ui:define name="contenido">
+            <h:form>
+                <a href= "perfil-administrador.xhtml" ><img id="foto_cerrar_pest" src = "Close_Box_Red.png"></img></a>
+                <h:dataTable value="#{controlPerfilAdministrador.getListaEducandos()}" var="u"
+                             styleClass = "tabla-datos-verde"
+                             headerClass = "tabla-datos-verde-header"
+                             rowClasses = "tabla-datos-verde-fila-impar,tabla-datos-verde-fila-par">
+                    <h:column>
+                        <f:facet name="header">ID</f:facet>
+                        <h:outputText value="#{u.idUsuario}"/>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">Usuario</f:facet>
+                        <h:outputText value="#{u.usuario}"/>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">Nombre</f:facet>
+                        <h:outputText value="#{u.nombre}"/>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">Grupo</f:facet>
+                        <h:outputText value="#{u.seccion}"/>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">Documentos</f:facet>
+                        <h:commandButton value="ver" action="#{controlPerfilAdministrador.clickVerDocumentacion(u.idUsuario)}"/>
+                    </h:column>
+
+                </h:dataTable>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>
+

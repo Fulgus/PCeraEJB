@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <ui:composition template="./WEB-INF/templates/plantilla.xhtml">
+        <ui:define name="title">Pagar Cuota</ui:define>
+        <ui:define name="contenido">
+            <h:form>
+            <h1 id="PagCuo_MovTi">Pagar Cuota</h1>
+            <h2 id="PagCuo_MovTi">Precio  : X€</h2>
+            <h2 id="PagCuo_CenTxt">Metodo de pago</h2>
+            <div id="PagCuo_CenRd">
+                <input type="radio" name="tiempo" > Efectivo</input>
+                <input type="radio" name="tiempo"> Tarjeta de credito</input>
+                <input type="radio" name="tiempo"> Transferencia</input>
+                <input type="radio" name="tiempo"> PayPal</input>
+            </div>
+            <p id="PagCuo_CenTxt"> Si el pago es a través de transferencia adjuntar el resguardo aquí</p>
+            <table align="center">
+
+                <tr><td><a href= "http://www.eluniversal.com.mx/sites/default/files/u17566/4.jpeg" ><img width ="18" src = "https://image.freepik.com/iconos-gratis/line-clip-de-sujecion_318-25320.jpg"></img></a></td><td style="border: solid 1px black; padding-right: 24em"></td></tr>
+            </table>
+            <br/>
+            <table style="padding-left:  40%">
+                <tr><td><h:commandButton class="ColorBoton" action="#{controlCuota.btnAceptarMetPag()}" value="Aceptar"></h:commandButton></td>
+                    <td><h:commandButton style="margin-left:  60%" class="ColorBoton" action="#{controlCuota.btnAtrasMetPag()}" value="Atras"></h:commandButton></td></tr>
+            </table>
+            <br/><br/><br/>
+        </h:form>
+        </ui:define>
+    </ui:composition>
+</html>

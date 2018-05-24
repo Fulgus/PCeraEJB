@@ -1,0 +1,278 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+td{
+    border: none;
+    margin: 0;
+    padding: 0;
+    border-spacing: 0;
+}
+
+tr{
+    border: none;
+    margin: 0;
+    padding: 0;
+    border-spacing: 0;
+}
+
+li.sesion{
+    float: right;
+    display: inline;
+    margin: 0px 0px 10px 0px;
+    padding: 0;
+    height: 0;
+    border-bottom: 0;
+    position: relative;
+    top: -15px;
+}
+
+#navbar {
+    font-family: Ubuntu;
+    position: relative;
+    background-color: #8702B9;
+    color: white;
+    padding: 5px;
+    height: 3em;
+    margin: 0;
+}
+
+#navbar a:link, #top a:visited {
+    color: white;
+    font-weight : bold;
+    text-decoration: none;
+}
+
+#navbar a:hover {
+    color: greenyellow;
+}
+
+ul.menulist li {
+    list-style: none;
+    display:inline;
+    margin: 1em;
+}
+
+#img-santo-angel{
+    align-content: center;
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+    height: auto;
+    width: 100%;
+}
+
+#tabla-contenido-plantilla{
+    font-family: Ubuntu;
+    margin: 0;
+    left: 0;
+    top: 0;
+    right: 0;
+    width: 100%;
+    border: none;
+    padding: 0;
+    border-spacing: 0;
+}
+
+#footer{ 
+    font-family: Ubuntu;
+    background-color: #8702B9;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+    position: fixed;
+}
+
+#PagCuo_CenTxt{
+    text-align: center;
+}
+
+#PagCuo_MovTi{
+    padding-left: 20%;
+}
+
+#PagCuo_CenRd{
+    padding-left: 33.5%;
+}
+
+.ColorBoton{
+    display: inline-block;
+    padding: 10px 17px;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #8702B9;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 3px #999;
+}
+
+.ColorBoton:hover {background-color: #3e8e41}
+
+.ColorBoton:active {
+    background-color: #3e8e41;
+    box-shadow: 0 6px #666;
+    transform: translateY(4px);
+}
+
+#fotoperfil{
+    width: 50%;
+    height: 50%;
+}
+
+#boton_aniadir_user{
+    text-align: center;
+}
+
+.tabla_gest_user th, .tabla_gest_user td{
+    border: 1px solid black;
+}
+
+.tabla_gest_user{
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+
+#radio_privilegios{
+    margin: 10px 10px 0px 0px;
+}
+
+/*GC = Gestionar Cuota*/
+.thGC{
+    background-color: green;
+    color: white;
+    font-weight: normal;
+
+}
+
+.tableGestCuo {
+    border-collapse: collapse;
+    width: 70%;
+}
+
+.tableGestCuo, .thGC, .tdGC {
+    border: 1px solid green;
+}
+
+.tdGC, .thGC {
+    padding: 0.3em;
+    height:30px;
+
+    text-align: center;
+}
+
+.trGC2 {
+    background-color: #ddffdd;
+}
+
+.trGC {
+    background-color: white;
+}
+
+#foto_cerrar_pest{
+    width: 18px;
+    padding-left: 82%;
+
+}
+
+#columnas_tabla_inicio{
+    width: 75%;
+}
+
+#div_modificar_perfil{
+    font-size: 16px;
+}
+
+#input:invalid {
+    border: 1px solid red;
+}
+
+#input:valid {
+    border: 1px solid green;
+}
+#popup
+{
+    position: absolute;
+    border: 1px solid #666666;
+    background-color:#F7F7F7;
+    width: 200px;
+    height: 100px;
+    margin-top: 50px;
+    margin-left: 40%;
+}
+
+.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+#foto_mapa_informacion{
+    max-width: 50%;
+}
+
+#div_perfil_educando{
+    text-align: center;
+    font-size: 20px;
+}
+
+#div_perfil_educando table{
+    width: 80%;
+}
+
+#perfilheader{
+    margin-left: 7%;
+}
+
+.tabla_users th {
+    background-color: #D3D3D3;
+}
+
+.tabla_users table {
+    width: 100%;
+}
+
+.tabla_users {
+    margin: 0 auto;
+}
+
+.tabla_users td, .tabla_users tr{
+    border: 1px solid black;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 20%;
+    text-align: center;
+}
+
+/*Formato tabla JSF Motivos verdes*/
+.tabla-datos-verde {
+    border-collapse:collapse;
+    /*border:1px solid green;*/
+     margin: 0 auto;
+}
+
+.tabla-datos-verde-header {
+    text-align:center;
+    background:none repeat scroll 0 0 green;
+    color:white; 
+    padding:2px;
+}
+
+.tabla-datos-verde-fila-impar {
+    padding: 0.3em;
+    border:1px solid green;
+    text-align:center;
+    background:none repeat scroll 0 0 white;	
+}
+
+.tabla-datos-verde-fila-par {
+    padding: 0.3em;
+    border:1px solid green;
+    text-align:center;
+    background:none repeat scroll 0 0 #ddffdd;
+}

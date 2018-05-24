@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+
+    <ui:composition template="./WEB-INF/templates/plantilla.xhtml">
+        <ui:define name="title">Informacion</ui:define>
+
+        <ui:define name="contenido">
+            <h1>Información</h1>
+            <table>
+                <tr>
+                    <td><h:button class="ColorBoton" value="Uniformes" outcome="uniformes.xhtml"></h:button></td>
+                    <td><h:button class="ColorBoton" value="Como hacer una mochila" outcome="mochila.xhtml"></h:button></td>
+                    <td><h:button class="ColorBoton" value="Equipamiento básico del scout" outcome="equipamiento.xhtml"></h:button></td>
+                </tr>
+            </table>
+            <table >
+                <tr>
+                    <td>
+                        <h2>Donde estamos</h2>
+                        <p>
+                            El acceso a nuestro local, esta al final de la Avenida de Europa en dirección hacia el Polígono Industrial Santa Bárbara. Justo al pasar bajo la Autovía, hay una entrada a la derecha (una semi-raqueta con una escultura metálica de un niño con un balón) hacia el Campo de Futbol “Los Conejitos”. Una vez atravesado el muro blanco, se gira a la dcha. y se sigue el camino asfaltado hacia el descampado donde se puede aparcar.
+
+                            El acceso peatonal es subiendo las primeras escaleras hacia la reja azul metálica. Nuestro local, esta al fondo del patio, bajo la escalera metálica del salón de actos.
+
+                            Coordenadas GPS: 36.697186,-4.459671 / N 36° 41′ 49.87”    O 4° 27′ 34.82”
+                        </p>
+                    </td>
+                    <td>
+                        <h3> Grupo Scouts 39 en Facebook</h3>
+                        <table>
+                            <tr>
+                                <td>
+                                    <img src="iconoFB.jpg" id="icono_facebook"/> 
+                                </td>
+                                <td>
+                                    <form action="https://www.facebook.com/g39santoangel/">
+                                        <input type="submit" value="Comparte" />
+                                    </form>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+
+                    <td align="center" id="columnas_tabla_inicio">
+                        Mapa <br></br>
+                        <img src="Mapa.jpg" id="foto_mapa_informacion"/></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><h2>ASDE</h2>
+                        ¡No estamos solos!
+
+                        <p>Tan sólo en Málaga existen diez grupos scouts y hay decenas por toda Andalucía. Formamos parte de Scouts de Andalucía, una Organización No Gubernamental sin ánimo de lucro, independiente, aconfesional y declarada de Utilidad Pública el 6 de Marzo de 1997. Apoyada por jóvenes y adultos voluntarios, es de carácter educativo-formativo en el tiempo libre infantil y juvenil. La Asociación de Scouts de Andalucía organiza diversas actividades a lo largo del año para que los jóvenes de todos los grupos compartan su formación, pues todos participamos del mismo método educativo.</p>
+
+                        <p>A su vez, Scouts de Andalucía es una organización federada de ASDE Scouts de España. Todos formamos parte del Movimiento Scout Mundial, fundado en el año 1907 por Baden Powell en Inglaterra. Es organización que se basa en un proyecto educativo dirigido a niños y jóvenes con el objetivo de promover su educación integral y su implicación social. El Escultismo trabaja con y para la infancia y la juventud con la ilusión de construir un mundo mejor a través del liderazgo entre iguales.</p>
+
+                        <p>Os adjuntamos la página de ASDE, de Scouts de Andalucía y de Movimiento Scout Mundial por si queréis tener más  información:</p>
+
+                        Scouts de Andalucía: www.scoutsdeandalucia.org <br></br>
+                        Scouts de España: scout.es <br></br>
+                        Movimiento Scout Mundial: scout.org <br></br>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h2>Colegio Guadaljaire</h2>
+                        <p>En el curso 2007/2008 el Grupo Scout 39 Santo Ángel se instaló en el Colegio Guadaljaire, en la zona de Santa Bárbara. De esta forma nos mantenemos en la zona oeste de Málaga y tenemos un espacio óptimo para desarrollar nuestras actividades: un local decorado acorde al simbolismo de cada sección, pistas de fútbol y baloncesto, un trastero para los materiales de acampada, un gimnasio cubierto y un salón de actos cobijan nuestras actividades.</p>
+                        
+                        <p>El Grupo 39 esta muy agradecido al colegio por permitirnos desarrollar nuestra labor educativa y proporcionar a nuestros niños unas instalaciones que nos son de gran utilidad. Ademas de poder recrear la ambientacion que cada seccion utiliza, podemos trabajar con los niños la responsabilidad en su mantenimiento, asi como el valor humano y social de esta cesion. Nuestro hermano, Juan Antonio, respaldó desde el principio nuestro proyecto y siempre esta disponible para atendernos con una gran sonrisa y tendrenos la mano izquierda para cualquier cosa. La Direccion, tambien esta de nuestro lado, abriendonos las puertas y creando una sinergia con nosotros para atender a los niños del cole en algunas actividades. Mil gracias a ambos por su colaboracion con el mundo del escultismo.</p>
+
+                        Aquí podéis ver las actividades que se realizan en el Colegio: http://ceipguadaljairealborada.blogspot.com.es/
+                    </td>
+                </tr>
+            </table>
+        </ui:define>
+
+    </ui:composition>
+</html>
+

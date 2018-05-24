@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <ui:composition template="./WEB-INF/templates/plantilla.xhtml">
+        <ui:define name="title">Crear Cuota</ui:define>
+        <ui:define name="contenido">
+            <h:body> 
+                <h:form>
+                    <a href= "perfilAdministrador.xhtml" ><img id="foto_cerrar_pest" src = "Close_Box_Red.png"></img></a>
+                    <h:dataTable class="tableGestCuo" value="#{controlPerfilAdministrador.getListaEducandos()}" var="u"></h:dataTable>
+                </h:form>
+                <h1 align="center">Cuotas</h1>
+                <div>
+                    <table style="padding-left:  30%">
+                        <tr><td style="border: solid 1px black;padding: 5px">Cuota actual: x€/año</td>
+                            <td><h:button style="margin-left:180%" class="ColorBoton" outcome="CrearCuota.xhtml" value="Crear cuotas"></h:button></td></tr>
+                    </table>
+                </div>
+                <h:form>
+                    <h:dataTable value="#{controlPerfilAdministrador.listaCuota}" var="c"
+                                 styleClass = "tabla-datos-verde"
+                                 headerClass = "tabla-datos-verde-header"
+                                 rowClasses = "tabla-datos-verde-fila-impar, tabla-datos-verde-fila-par">
+
+
+                        <h:column>    				
+                            <f:facet name = "header">Año</f:facet>    				
+                            <h:outputText value="#{controlCuota.anioFecha(c.fecha)}"/>
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name = "header">Personas</f:facet>    				
+                            <h:outputText value="#{controlCuota.ContarEducandos(controlPerfilAdministrador.l)}/#{controlCuota.ContarEducandos(controlPerfilAdministrador.l)}"/>
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name = "header"></f:facet>
+                            <h:commandButton value="Ver" action="#{controlCuota.btnVerCuenta()}"/>
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name = "header">Precio</f:facet>
+                            <h:outputText value="#{c.importe}€"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:form>
+
+            </h:body>
+        </ui:define>
+    </ui:composition>
+</html>

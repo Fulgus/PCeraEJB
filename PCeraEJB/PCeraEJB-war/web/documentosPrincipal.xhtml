@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <ui:composition template="./WEB-INF/templates/plantilla.xhtml">
+        <ui:define name="title">Inicio</ui:define>
+        <ui:define name="contenido">
+            <h1>Documentos</h1>
+            <p>
+                <h3 align="center">Educando</h3>
+                <h:form>
+                    <table style="border: solid 1px black;"  cellpadding="5" align="center">
+                        <thead>
+                            <tr style="background-color: #D3D3D3;"> 
+                                <th>Documentos </th>  <th>Fecha </th>  <th>Ver </th>  <th>Modificar</th>
+                            </tr>
+                            <tr>
+                                <td>Documento1 </td> <td> 1/01/1999</td> <td><h:commandLink action="#{controlDocumentos.descargarDoc()}" value="Descargar"></h:commandLink></td> <td><h:commandLink action="#{controlDocumentos.modificarDoc()}" value="Modificar"></h:commandLink></td>                                             
+                            </tr>
+                            <tr>
+                                <td>Documento2</td> <td>1/54/7854</td> <td><h:commandLink action="#{controlDocumentos.descargarDoc()}" value="Descargar"></h:commandLink></td> <td><h:commandLink action="#{controlDocumentos.modificarDoc()}" value="Modificar"></h:commandLink></td>
+                            </tr>
+                        </thead>
+                    </table>
+                    <table align="center" border="0">
+                        <tr>
+                            <td><h:commandButton class="ColorBoton" action="#{controlDocumentos.volverPerfil()}" value="Atras"></h:commandButton></td> <td><h:commandButton class="ColorBoton" action="#{controlDocumentos.subirDoc()}"  value="Subir Documento"></h:commandButton></td>
+                        </tr>
+                    </table>
+                </h:form>
+            </p>
+        </ui:define>
+    </ui:composition>
+</html>

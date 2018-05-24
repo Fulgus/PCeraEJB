@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition template="./WEB-INF/templates/plantilla.xhtml">
+        <ui:define name="title">Perfil Educando</ui:define>
+        <ui:define name="contenido">
+            <h1 id="perfilheader">Perfil</h1>
+            <div id="div-perfil-educando">
+                <h:form>
+                    <table id="tablaperfil">
+                        <tr>
+                            <td rowspan="4"><h:graphicImage id="fotoperfil" value="#{perfil.getImagen()}" /></td>
+                            <th>Usuario:</th>
+                            <th>Nombre:</th>
+                            <th>Apellidos:</th>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><h:outputText value="#{perfil.getUsuario()}"/></td>
+                            <td><h:outputText value="#{perfil.getNombre()}"/></td>
+                            <td><h:outputText value="#{perfil.getApellidos()}"/></td>
+                        </tr>
+                        <tr>
+                            <th>Fecha de juramento de bandera:</th>
+                            <th>Sexo:</th>
+                            <th>Teléfono:</th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><h:outputText value="#{perfil.mostrarFecha_juraBand()}"/></td>
+                            <td><h:outputText value="#{perfil.getSexo()}"/></td>
+                            <td><h:outputText value="#{perfil.getTelefono()}"/></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><h:commandButton class="ColorBoton" value="Modificar Perfil" action="#{perfil.clickLinkModificar()}"></h:commandButton></td>
+                            <th>Dirección:</th>
+                            <th>Fecha de nacimiento:</th>
+                            <th>Grupo:</th>
+                            <td><h:commandButton class="ColorBoton" value="Pagar cuota" action="#{perfil.clickLinkPagarCuota()}"/></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><h:outputText value="#{perfil.getDireccion()}"/></td>
+                            <td><h:outputText value="#{perfil.mostrarFecha_nacimiento()}"/></td>
+                            <td><h:outputText value="#{perfil.grupo}"/></td>
+                        </tr>
+                        <tr>
+                            <td><h:commandButton class="ColorBoton" value="Cambiar contraseña" action="#{perfil.clickLinkCambiarContrasenia()}"></h:commandButton></td>
+                            <th>Fecha de alta:</th>
+                            <th>E-mail:</th>
+                            <td></td>
+                            <td><h:commandButton class="ColorBoton"  action="#{perfil.clickLinkVerDocumentacion()}" value="Ver mi documentación"></h:commandButton></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><h:outputText value="#{perfil.mostrarFecha_alta()}"/></td>
+                            <td><h:outputText value="#{perfil.getEmail()}"/></td>
+                            
+                        </tr>
+                    </table> 
+                </h:form>
+                <br/><br/><br/><br/><br/>
+            </div>
+        </ui:define>
+
+    </ui:composition>
+</html>

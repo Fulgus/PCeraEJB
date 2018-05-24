@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition template="./WEB-INF/templates/plantilla.xhtml">
+        <ui:define name="title">Gestión de usuarios</ui:define>
+        <ui:define name="contenido">
+            <h:form>
+                <h:dataTable styleClass="tabla_users" value="#{controlPerfilAdministrador.listaEducandos}" var="d">
+                    <h:column>
+                        <f:facet name="header">ID</f:facet>
+                        <h:outputText value="#{d.idUsuario}"/>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">Nombre</f:facet>
+                        <h:outputText value="#{d.nombre}"/>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">Grupo</f:facet>
+                        <h:outputText value="Lobatos"/>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">Eliminar usuario</f:facet>
+                        <h:commandLink value="Borrar" action="#{controlPerfilAdministrador.clickBotonBorrarUsuario()}"/>
+                    </h:column>
+
+                </h:dataTable>
+            </h:form>
+            <p id="boton_aniadir_user">
+            <h:button class="ColorBoton" value="añadir" outcome="aniadirUsuario.xhtml"/>
+            </p>
+        </ui:define>
+
+    </ui:composition>
+</html>

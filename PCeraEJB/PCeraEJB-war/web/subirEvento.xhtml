@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    
+    <ui:composition template="./WEB-INF/templates/plantilla.xhtml">
+    <ui:define name="title">Evento</ui:define>
+    
+     <ui:define name="contenido">
+    <c:if test="${not empty controlInicio.usuario}">
+        <c:choose>
+            <c:when test="#{controlInicio.getUsuario().getTipoUsuario()==2}">
+         
+              
+                    <h:form id="form">
+                        <p:growl id="msgs" showDetail="true" />
+                        <table align="center">
+
+                          <tr>
+                                <td><h4>Nombre evento:</h4></td>
+                            </tr>
+    
+                            <tr>
+                                <td><p:inputText id="Nombre_evento" required="true" value="#{eventoBean.nombre}"/></td>
+                            </tr>
+         
+                            <tr>
+                                <td><h4>Lugar:</h4></td>
+                            </tr>
+                            
+                            <tr>
+                                <td><p:inputText  value="#{eventoBean.lugar}"/></td>
+                            </tr> 
+                            
+                     
+                            <tr>
+                                <td><h4>Precio:</h4></td>
+                            </tr>
+                            <tr>
+                                <td><p:inputNumber id="Precio" required="true" value="#{eventoBean.precio}"/></td>
+                            </tr>
+                              
+
+                            <tr>
+                                <td><h4>Descripción del evento:</h4></td>
+                            </tr>
+                            <tr>
+                                <td><p:inputTextarea id="Descripción" rows="10" cols="50"  queryDelay="750" minQueryLength="4" value="#{eventoBean.descripcion}" /></td>
+                            </tr>
+                            
+                            <tr>
+                                <td><h4>Seccion:</h4></td>
+                            </tr>
+                            <tr>
+                                <td> <h:selectOneRadio id="Seccion" required="true" value="#{eventoBean.seccion}">
+                                        <f:selectItem itemValue="Castores" itemLabel="Castores"/>   
+                                        <f:selectItem itemValue="Manada" itemLabel="Manada" />
+                                        <f:selectItem itemValue="Tropa" itemLabel="Tropa" />
+                                        <f:selectItem itemValue="Unidad" itemLabel="Unidad" />
+                                        <f:selectItem itemValue="Clan" itemLabel="Clan" />
+                                    </h:selectOneRadio></td>
+                            </tr>
+                            
+                        </table>
+                        <br/>
+                            <table style="padding-left:  40%">
+                                <tr><td><h:commandButton class="ColorBoton" value="Subir" action="#{eventoBean.enviarEvento()}"></h:commandButton></td>
+                            </tr>
+                            </table>
+            <br/><br/><br/>
+                    </h:form>
+                </c:when>
+            
+            
+       <c:when test="#{controlInicio.getUsuario().getTipoUsuario()==0}">
+                
+                <h:form id="form">
+                        <p:growl id="msgs" showDetail="true" />
+                        <table align="center">
+
+                          <tr>
+                                <td><h4>Nombre evento:</h4></td>
+                            </tr>
+    
+                            <tr>
+                                <td><p:inputText id="Nombre_evento" required="true" value="#{eventoBean.nombre}"/></td>
+                            </tr>
+         
+                            <tr>
+                                <td><h4>Lugar:</h4></td>
+                            </tr>
+                            
+                            <tr>
+                                <td><p:inputText  value="#{eventoBean.lugar}"/></td>
+                            </tr> 
+                            
+                     
+                            <tr>
+                                <td><h4>Precio:</h4></td>
+                            </tr>
+                            <tr>
+                                <td><p:inputNumber id="Precio" required="true" value="#{eventoBean.precio}"/></td>
+                            </tr>
+                              
+
+                            <tr>
+                                <td><h4>Descripción del evento:</h4></td>
+                            </tr>
+                            <tr>
+                                <td><p:inputTextarea id="Descripción" rows="10" cols="50"  queryDelay="750" minQueryLength="4" value="#{eventoBean.descripcion}" /></td>
+                            </tr>
+                            
+                            <tr>
+                                <td><h4>Seccion:</h4></td>
+                            </tr>
+                            <tr>
+                                <td> <h:selectOneRadio id="Seccion" required="true" value="#{eventoBean.seccion}">
+                                        <f:selectItem itemValue="Castores" itemLabel="Castores"/>   
+                                        <f:selectItem itemValue="Manada" itemLabel="Manada" />
+                                        <f:selectItem itemValue="Tropa" itemLabel="Tropa" />
+                                        <f:selectItem itemValue="Unidad" itemLabel="Unidad" />
+                                        <f:selectItem itemValue="Clan" itemLabel="Clan" />
+                                    </h:selectOneRadio></td>
+                            </tr>
+                            
+                        </table>
+                        <br/>
+                            <table style="padding-left:  40%">
+                                <tr><td><h:commandButton class="ColorBoton" value="Subir" action="#{eventoBean.enviarEvento()}"></h:commandButton></td>
+                            </tr>
+                            </table>
+            <br/><br/><br/>
+                    </h:form>
+                    
+       </c:when>>
+
+        </c:choose>
+               
+    </c:if>       
+                
+       
+    </ui:define>
+        </ui:composition>
+</html>

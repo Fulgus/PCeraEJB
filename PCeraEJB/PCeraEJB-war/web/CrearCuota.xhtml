@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <ui:composition template="./WEB-INF/templates/plantilla.xhtml">
+        <ui:define name="title">Crear Cuota</ui:define>
+        <ui:define name="contenido">
+            <h:form>
+                <h1 style="padding-left: 40%">Año</h1>
+                <h2 style="padding-left: 40%"><h:inputText style="border: solid" required="true" onkeypress="if (event.which &lt; 48 || event.which &gt; 57) return false;"/></h2>
+                <h1 style="padding-left: 40%">Importe</h1>
+                <h2 style="padding-left: 40%"><h:inputText style="border: solid" required="true" onkeypress="if (event.which &lt; 46 || event.which &gt; 57) return false;"/></h2>
+                    <h:commandButton style="margin-left:  35%" class="ColorBoton" action="#{controlCuota.btnCrearCrCuota()}" value="Aceptar"></h:commandButton>
+            </h:form>
+            <h:form>
+                    <h:commandButton style="margin-left:50%; position: absolute; bottom: 8.5% " class="ColorBoton" action="#{controlCuota.btnCancelarCrCuota()}" value="Cancelar"></h:commandButton>
+                <br /><br /><br />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>

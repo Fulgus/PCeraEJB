@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+   <ui:composition template="./WEB-INF/templates/plantilla.xhtml">
+        <ui:define name="title">Perfil Administrador</ui:define>
+        <ui:define name="contenido">
+             <h1>Perfil</h1>
+             <c:if test ="#{controlInicio.getUsuario().getTipoUsuario() == 0}">
+                 Eres administrador
+             </c:if>
+             
+             <c:if test ="#{controlInicio.getUsuario().getTipoUsuario() == 1}">
+                 Eres coordinador
+             </c:if>
+            <div id="div-perfil"> 
+             <table cellspan="5">
+                <tr>
+                  <td rowspan="2"><h:graphicImage id="fotoperfil" value="#{perfil.getImagen()}" /></td>
+                  <c:if test ="#{controlInicio.getUsuario().getTipoUsuario() == 0}">
+                    <td>-<h:link value="Asignación de privilegios" outcome="privilegios.xhtml"/></td>
+                  </c:if>
+                </tr>
+                <tr>
+                  <td>-<h:link value="Gestión de usuarios" outcome="gestUsuarios.xhtml"/></td>
+                </tr>
+                <tr>
+                 <td></td>
+                 <td>-<h:link value="Gestión de cuotas" outcome="GestionarCuota.xhtml"/></td>
+                </tr>
+                <tr>
+                 <td><h:button class="ColorBoton" value="Cambiar contraseña" outcome="modificarContrasenia.xhtml"/></td>
+                 <td>-<h:link value="Gestión de eventos" outcome="GestionarEventos.xhtml"/></td>
+                </tr>
+                <tr>
+                 <td></td>
+                 <td>-<h:link value="Gestión de documentación" outcome="gestionDocumentacion.xhtml"/></td>
+                </tr>
+            </table> 
+                <br/><br/><br/><br/><br/>
+        </div>
+        </ui:define>
+        
+    </ui:composition>
+</html>

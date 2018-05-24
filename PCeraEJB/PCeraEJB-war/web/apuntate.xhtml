@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      >
+
+    <ui:composition template="./WEB-INF/templates/plantilla.xhtml">
+
+        <ui:define name="title">Apuntate</ui:define>
+        <ui:define name="contenido">
+            <table>
+                <tr>
+                    <td id="columnas_tabla_inicio">
+                        <h1>¿Quieres apuntarte?</h1>
+                        <p>
+                            Actualmente, el Grupo está compuesto por cuatro secciones: la Manada de Tha (de 8 a 11 años), la Tropa de Kim (de 11 a 14 años), la Unidad Esculta Siryu (de 14 a 17 años) y el Clan Rover Almogama (de 17 a 21). Los adultos que deseen formar parte de este proyecto educativo también son bienvenidos.
+
+                            Las secciones del Grupo se reúnen generalmente los sábados en el Colegio Guadaljaire.
+
+                            Si quieres apuntarte, obtener más información de las secciones, de los horarios, de las actividades… ponte en contacto con nosotros rellenando este formulario o enviando un email a: grupo39santoangel@gmail.com.
+
+                        </p>
+
+                        <h2>Solitud de información</h2>
+                        <!-- action="grupo39santoAngel@gmail.com" para enviar el correo al grupo tras aceptar-->
+                        <form method="post" name="formulario" enctype="text/plain" action="apuntateFinal.xhtml">
+                            <table>
+                                <tr>
+                                    <td>
+                                        Edad/Sección (requerido) 
+                                    </td>  
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <select>
+                                            <option value="ocho">De 8 a 11 años (Lobatos)</option>
+                                            <option value="doce">De 12 a 14 años (Tropa)</option>
+                                            <option value="quince">De 15 a 16 años (Escultas)</option>
+                                            <option value="diecisiete">De 17 a 21 años (Clan)</option>
+                                            <option value ="masveintiuno">Mas de 21 años (Scouter)</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Nombre (requerido)</td>
+                                </tr>
+                                <tr>
+                                    <td><input id="input" type="text" size="50" name="nombre" required="true"></input></td> 
+                                </tr>
+
+                                <tr>
+                                    <td>Correo electrónico (requerido)</td>
+                                </tr>
+                                <tr>
+                                    <td><input id="input" type="text" size="20" name="email" required="true"></input></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Teléfono (requerido)</td>
+                                </tr>
+                                <tr>
+                                    <td><input id="input" type="text" size="20" name="telefono" required="true"></input></td>
+                                </tr>
+
+                                <tr>
+                                    <td>¿Cómo nos has conocido?</td>
+                                </tr>
+                                <tr>
+                                    <td><input id="input" type="text" size="20" name="conocido"></input></td>
+                                </tr>
+
+                                <tr>
+                                    <td>¿Por qué estás interesando/a en unirte al grupo scout?</td>
+                                </tr>
+                                <tr>
+                                    <td><input id="input" type="text" size="20" name="interes"></input></td>
+                                </tr>
+
+                                <tr>
+                                    <td><input class="ColorBoton" type="reset" value="limpiar"></input></td>
+                                    <td><input type="submit" class="ColorBoton" value="Enviar"/></td>
+                                </tr>
+
+                            </table>
+
+                        </form> 
+                    </td>
+                    <td id="columnas_tabla_inicio">
+                        <h3> Grupo Scouts 39 en Facebook</h3>
+                        <table>
+                            <tr >
+                                <td id="columnas_tabla_inicio">
+                                    <img src="iconoFB.jpg" id="icono_facebook"/> 
+                                </td>
+                                <td>
+                                    <form action="https://www.facebook.com/g39santoangel/">
+                                        <input type="submit" value="Comparte" />
+                                    </form>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </ui:define>
+    </ui:composition>
+</html>
+

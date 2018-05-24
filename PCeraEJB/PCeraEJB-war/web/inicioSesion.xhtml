@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    
+    <ui:composition template="./WEB-INF/templates/plantilla.xhtml">
+        <ui:define name="title">Inicio de Sesion</ui:define>
+        <ui:define name="contenido">
+        <c:choose>
+            <c:when test="#{empty controlAutorizacion.usuario}">
+                <h:form id="login" style="align-content: center" >
+                    <table align="center" >
+                        <tr>
+                            <td><h2>Usuario:</h2> </td>
+                            <td><h:inputText value="#{login.usuario}"/></td>
+                        </tr>
+                        <tr>
+                            <td><h2>Contraseña:</h2> </td>
+                            <td><h:inputSecret value="#{login.contrasenia}"/></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <h:commandButton class="ColorBoton" value="Autenticar" action="#{login.autenticar()}"/>
+                            </td>
+                        </tr>
+                    </table>
+                </h:form>
+            </c:when>
+            <c:otherwise>
+                <p>Debe salir de la aplicación si quiere entrar como otro usuario</p>
+            </c:otherwise>
+        </c:choose>
+        <h:messages/>
+    </ui:define>
+    </ui:composition>
+</html>
+

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition template="./WEB-INF/templates/plantilla.xhtml">
+        <ui:define name="title">Modificar Perfil</ui:define>
+        <ui:define name="contenido">
+            <h1>Perfil</h1>
+            <div id="div_modificar_perfil"> 
+                <h:form>
+                    <table cellspan="5" id="tablaperfil">
+                        <tr>
+                            <td>Usuario:</td>
+                            <td>E-mail:</td>
+                        </tr>
+                        <tr>
+                            <td><h:inputText value="#{perfil.usuario}"></h:inputText></td>
+                            <td><h:inputText value="#{perfil.email}"></h:inputText></td>
+                        </tr>
+                        <tr>
+                            <td>Teléfono:</td>
+                            <td>Dirección:</td>
+                        </tr>
+                        <tr>
+                            <td><h:inputText value="#{perfil.telefono}"></h:inputText></td>
+                            <td><h:inputText value="#{perfil.direccion}"></h:inputText></td>
+                        </tr> 
+                    </table> 
+                    <p id="boton_submit_perfil">
+                        <h:button class="ColorBoton" value="Aplicar cambios" outcome="perfilEducando.xhtml"/>
+                    </p>
+                </h:form>
+                <br/><br/><br/><br/><br/>
+            </div>
+        </ui:define>
+
+    </ui:composition>
+</html>

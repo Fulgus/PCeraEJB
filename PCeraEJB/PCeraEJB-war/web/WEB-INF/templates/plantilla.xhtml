@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="./resources/css/cssLayout.css" rel="stylesheet" type="text/css" />
+        <title>
+            <ui:insert name="title">Inicio</ui:insert>
+        </title>
+    </h:head>
+
+    <h:body>
+        <table id="tabla-contenido-plantilla">
+            <tr>
+                <td>
+                    <div>
+                        <div id="navbar">
+                            <h:form>
+                                <ul class="menulist">
+                                    <li><h:commandLink action="#{controlInicio.clickLinkInicio()}" value="Inicio"/></li>
+                                    <li><h:commandLink action="#{controlInicio.clickLinkInformacion()}" value="Información"/></li>
+                                    <c:if test="#{empty controlInicio.usuario}">
+                                    <li><h:commandLink action="#{controlInicio.clickLinkApuntate()}" value="Apuntate"/></li>
+                                    </c:if>
+                                    <c:if test="#{!empty controlInicio.usuario}">
+                                    <li><h:commandLink action="#{controlInicio.clickLinkEventos()}" value="Eventos"/></li>
+                                    </c:if>
+                                    <c:if test="#{empty controlInicio.usuario}">
+                                        <li class="sesion"><h:commandLink action="#{controlInicio.clickLinkLogin()}" value="Inicio de Sesión"/></li>
+                                    </c:if>
+                                    <c:if test="#{!empty controlInicio.usuario}">
+                                        <li class="sesion"><h:commandLink action="#{controlInicio.clickLinkCrearEvento()}" value="Crear evento"/></li>
+                                        <li class="sesion"><h:commandLink action="#{controlInicio.logout()}" value="Cerrar sesión"/></li>
+                                        <li class="sesion"><h:commandLink action="#{controlInicio.clickLinkPerfil()}" value="Perfil"/></li>                                        
+                                    </c:if>
+                                    
+                                </ul>
+                            </h:form>
+                        </div>
+                        <div>
+                            <img src="./resources/imagenes/foto39SantoAngel.png" id="img-santo-angel"/>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div>
+                        <ui:insert name="contenido">
+                        </ui:insert>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td id="footer">Grupo Scout 39 Santo Angel - Málaga</td>
+            </tr>
+        </table>
+    </h:body>    
+</html>
