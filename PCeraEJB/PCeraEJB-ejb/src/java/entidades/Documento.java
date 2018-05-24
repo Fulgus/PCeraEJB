@@ -48,6 +48,13 @@ public class Documento implements Serializable {
         this.idDocumento = idDocumento;
     }
 
+    public Documento(Integer idDocumento, String nombre, Date fechaSubida, Integer estadoArchivo) {
+        this.idDocumento = idDocumento;
+        this.nombre = nombre;
+        this.fechaSubida = fechaSubida;
+        this.estadoArchivo = estadoArchivo;
+    }
+
     public Integer getIdDocumento() {
         return idDocumento;
     }
