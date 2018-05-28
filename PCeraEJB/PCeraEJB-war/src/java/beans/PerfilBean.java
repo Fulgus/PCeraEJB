@@ -5,9 +5,9 @@
  */
 package beans;
 
+import entidades.Usuario;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
-import es.uma.informatica.sii.jsf.autenticacion.modelo.Usuario;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 

@@ -4,7 +4,7 @@
  */
 package beans;
 
-import es.uma.informatica.sii.jsf.autenticacion.modelo.Usuario;
+import entidades.Usuario;
 
 import java.util.ArrayList;
 import java.util.Iterator;

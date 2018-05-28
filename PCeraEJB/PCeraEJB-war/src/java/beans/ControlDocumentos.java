@@ -5,9 +5,9 @@
  */
 package beans;
 
+import entidades.Documento;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
-import es.uma.informatica.sii.jsf.autenticacion.modelo.Documento;
 
 /**
  *

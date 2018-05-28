@@ -4,7 +4,7 @@
  */
 package beans;
 
-import es.uma.informatica.sii.jsf.autenticacion.modelo.Usuario;
+import entidades.Usuario;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;

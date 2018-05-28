@@ -6,11 +6,10 @@
 package beans;
 
  
+import entidades.Cuota;
+import entidades.Usuario;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
-import es.uma.informatica.sii.jsf.autenticacion.modelo.Cuota;
-import es.uma.informatica.sii.jsf.autenticacion.modelo.Documento;
-import es.uma.informatica.sii.jsf.autenticacion.modelo.Usuario;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;

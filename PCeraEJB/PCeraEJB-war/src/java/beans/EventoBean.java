@@ -5,11 +5,9 @@
  */
 package beans;
 
-import es.uma.informatica.sii.jsf.autenticacion.modelo.Evento;
-import es.uma.informatica.sii.jsf.autenticacion.modelo.Seccion;
-import es.uma.informatica.sii.jsf.autenticacion.modelo.Usuario;
+import entidades.Evento;
+import entidades.Usuario;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
