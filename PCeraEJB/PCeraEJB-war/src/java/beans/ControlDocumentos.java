@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package beans;
+package es.uma.informatica.sii.jsf.autenticacion;
 
-import entidades.Documento;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
+import es.uma.informatica.sii.jsf.autenticacion.modelo.Documento;
 
 /**
  *
@@ -60,3 +60,4 @@ public class ControlDocumentos {
         return "documentosPrincipal.xhtml";
     }
 }
+

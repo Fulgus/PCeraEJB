@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package beans;
+package es.uma.informatica.sii.jsf.autenticacion;
 
  
-import entidades.Cuota;
-import entidades.Usuario;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
+import es.uma.informatica.sii.jsf.autenticacion.modelo.Cuota;
+import es.uma.informatica.sii.jsf.autenticacion.modelo.Documento;
+import es.uma.informatica.sii.jsf.autenticacion.modelo.Usuario;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -102,5 +103,3 @@ public class ControlCuota {
         return "perfilEducando.xhtml";
     }
 }
-    
-

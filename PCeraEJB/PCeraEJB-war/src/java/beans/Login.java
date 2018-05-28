@@ -2,9 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package beans;
+package es.uma.informatica.sii.jsf.autenticacion;
 
-import entidades.Usuario;
+import es.uma.informatica.sii.jsf.autenticacion.modelo.Usuario;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -88,4 +88,5 @@ public class Login {
         }
     }
 }
+
 
