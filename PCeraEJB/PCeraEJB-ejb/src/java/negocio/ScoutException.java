@@ -5,15 +5,16 @@
  */
 package negocio;
 
-import entidades.Usuario;
-import javax.ejb.Local;
-
 /**
  *
  * @author Juan Antonio
  */
-@Local
-public interface Negocio {
+class ScoutException extends Exception {
 
-    public void registrarUsuario(Usuario u) throws ScoutException;
+    public ScoutException() {
+    }
+
+    public ScoutException(String message) {
+        super(message);
+    }
 }

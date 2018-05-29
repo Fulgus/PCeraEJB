@@ -5,8 +5,11 @@
  */
 package negocio;
 
+import entidades.Usuario;
 import javax.ejb.Stateless;
 import javax.ejb.LocalBean;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 /**
  *
@@ -15,7 +18,15 @@ import javax.ejb.LocalBean;
 @Stateless
 @LocalBean
 public class NegocioImpl implements Negocio{
+    
+    @PersistenceContext(unitName = "PCeraEJB-ejbPU")
+    private EntityManager em;
 
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
+
+    @Override
+    public void registrarUsuario(Usuario u) throws ScoutException {
+        em.persist(u);
+    }
 }

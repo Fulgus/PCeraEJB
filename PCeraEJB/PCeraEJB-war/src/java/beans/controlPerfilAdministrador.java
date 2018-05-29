@@ -19,6 +19,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import javax.inject.Inject;
+import negocio.Negocio;
 
 /**
  *
@@ -27,6 +29,9 @@ import java.util.List;
 @Named(value = "controlPerfilAdministrador")
 @SessionScoped
 public class controlPerfilAdministrador implements Serializable {
+    
+    @Inject
+    private Negocio negocio;
     
     private List<Usuario> l = new ArrayList<>();
     private List<Documento> d = new ArrayList<>();
