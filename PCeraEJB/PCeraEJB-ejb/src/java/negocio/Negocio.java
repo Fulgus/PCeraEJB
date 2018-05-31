@@ -5,7 +5,9 @@
  */
 package negocio;
 
+import entidades.Evento;
 import entidades.Usuario;
+import java.util.List;
 import javax.ejb.Local;
 
 /**
@@ -16,4 +18,12 @@ import javax.ejb.Local;
 public interface Negocio {
 
     public void registrarUsuario(Usuario u) throws ScoutException;
+    
+    public void crearEvento(Evento e);
+    
+    public List<Evento> getEv();
+    
+    public void editarEvento(Evento e);
+    
+    public void RellenarBd();
 }

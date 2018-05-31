@@ -40,7 +40,7 @@ public class Evento implements Serializable {
     @ManyToMany
     private List<Usuario> usuarioCollection;
     @ManyToOne(optional = false)
-    private String seccion;
+    private Seccion seccion;
 
     public Evento() {
     }
@@ -98,11 +98,11 @@ public class Evento implements Serializable {
         this.usuarioCollection = usuarioCollection;
     }
 
-    public String getSeccion() {
+    public Seccion getSeccion() {
         return seccion;
     }
 
-    public void setSeccion(String seccion) {
+    public void setSeccion(Seccion seccion) {
         this.seccion = seccion;
     }
 
