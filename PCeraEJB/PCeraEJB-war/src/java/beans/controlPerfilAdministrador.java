@@ -19,8 +19,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import javax.inject.Inject;
+import javax.ejb.EJB;
 import negocio.Negocio;
+import negocio.ScoutException;
 
 /**
  *
@@ -30,7 +31,7 @@ import negocio.Negocio;
 @SessionScoped
 public class controlPerfilAdministrador implements Serializable {
     
-    @Inject
+    @EJB
     private Negocio negocio;
     
     private List<Usuario> l = new ArrayList<>();
@@ -84,11 +85,21 @@ public class controlPerfilAdministrador implements Serializable {
     }
     
     public void clickBotonDescargarListado() {
-        //Rellenar
+        try {
+            this.negocio.descargarListadoDocumentacion();
+        } catch (ScoutException ex) {
+        }
     }
     
-    public void clickBotonBorrarDocumento(){
-        //Rellenar
+    public void clickBotonBorrarDocumento(Documento d){
+        try {
+            this.negocio.borrarDocumentacion(d);
+        } catch (ScoutException ex) {
+        }
+    }
+    
+    public void clickBotonDescargarDocumento(Documento d){
+        
     }
     
     public void clickBotonBorrarUsuario(){

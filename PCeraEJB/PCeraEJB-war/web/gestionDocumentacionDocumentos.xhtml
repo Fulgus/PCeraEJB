@@ -32,14 +32,12 @@
 
                     <h:column>
                         <f:facet name="header">Descargar</f:facet>
-                        <a href="MB__java.png" download="">
-                            Descargar
-                        </a>
+                        <h:commandButton value="Descargar" action="#{controlPerfilAdministrador.clickBotonDescargarDocumento(d)}"/>
                     </h:column>
 
                     <h:column>
                         <f:facet name="header">Borrar</f:facet>
-                        <h:commandButton value="Borrar" action="#{controlPerfilAdministrador.clickBotonBorrarDocumento()}"/>
+                        <h:commandButton value="Borrar" action="#{controlPerfilAdministrador.clickBotonBorrarDocumento(d)}"/>
                     </h:column>
 
                 </h:dataTable>

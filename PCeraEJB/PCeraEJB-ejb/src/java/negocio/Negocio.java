@@ -5,6 +5,7 @@
  */
 package negocio;
 
+import entidades.Documento;
 import entidades.Usuario;
 import javax.ejb.Local;
 
@@ -16,4 +17,10 @@ import javax.ejb.Local;
 public interface Negocio {
 
     public void registrarUsuario(Usuario u) throws ScoutException;
+    
+    public void borrarDocumentacion(Documento d) throws ScoutException;//
+    
+    public void descargarDocumento(Documento d) throws ScoutException;
+    
+    public void descargarListadoDocumentacion() throws ScoutException;
 }
