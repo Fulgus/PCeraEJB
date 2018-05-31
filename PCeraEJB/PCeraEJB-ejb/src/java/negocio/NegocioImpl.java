@@ -9,7 +9,6 @@ import entidades.Documento;
 import entidades.Usuario;
 import java.util.List;
 import javax.ejb.Stateless;
-import javax.management.Query;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
