@@ -6,10 +6,12 @@
 package negocio;
 
 import entidades.Evento;
+import entidades.Documento;
 import entidades.Usuario;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 import javax.ejb.Stateless;
-import javax.ejb.LocalBean;
+import javax.management.Query;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -18,10 +20,8 @@ import javax.persistence.PersistenceContext;
  * @author Juan Antonio
  */
 @Stateless
-public class NegocioImpl implements Negocio{
-    
-    int contId = 10;
-    
+public class NegocioImpl implements Negocio {
+    int contId=0;
     @PersistenceContext(unitName = "PCeraEJB-ejbPU")
     private EntityManager em; 
 
@@ -64,4 +64,28 @@ public class NegocioImpl implements Negocio{
     public void registrarUsuario(Usuario u) throws ScoutException {
         em.persist(u);
     }
+
+    @Override
+    public void borrarDocumento(Documento d) throws ScoutException {
+        em.remove(d);
+    }
+
+    @Override
+    public byte[] descargarDocumento(Documento d) throws ScoutException {
+        Object o = this.em.createQuery("select d.archivo from Documento d where d.idDocumento ='" + d.getIdDocumento().toString() + "'").getSingleResult();
+        byte[] t = (byte[])o;
+        return t;
+    }
+
+    @Override
+    public void descargarListadoDocumentacion() throws ScoutException {
+        this.em.createQuery("select d from Documento d").getResultList();
+    }
+
+    @Override
+    public List<Documento> documentosDeUsuario(Integer u) throws ScoutException {
+        List l = this.em.createQuery("select d from Documento d where d.usuarioIdUsuario = '"+u+"'").getResultList();
+        return l;
+    }
+
 }

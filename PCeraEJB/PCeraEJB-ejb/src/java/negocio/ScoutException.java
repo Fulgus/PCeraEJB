@@ -9,7 +9,7 @@ package negocio;
  *
  * @author Juan Antonio
  */
-class ScoutException extends Exception {
+public class ScoutException extends Exception {
 
     public ScoutException() {
     }

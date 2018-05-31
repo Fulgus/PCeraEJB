@@ -98,12 +98,16 @@ public class Evento implements Serializable {
         this.usuarioCollection = usuarioCollection;
     }
 
+
     public Seccion getSeccion() {
         return seccion;
+
     }
+
 
     public void setSeccion(Seccion seccion) {
         this.seccion = seccion;
+
     }
 
     @Override
