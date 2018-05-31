@@ -17,12 +17,17 @@ import javax.ejb.Local;
 public interface Negocio {
 
     public void registrarUsuario(Usuario u) throws ScoutException;
-    
+
     public void borrarDocumento(Documento d) throws ScoutException;//
-    
-    public void descargarDocumento(Documento d) throws ScoutException;//
-    
+
+    /**
+     *
+     * @param d
+     * @return
+     * @throws ScoutException
+     */
+    public byte[] descargarDocumento(Documento d) throws ScoutException;//
+
     public void descargarListadoDocumentacion() throws ScoutException;//
-    
-    
+
 }
