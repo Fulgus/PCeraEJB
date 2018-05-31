@@ -8,6 +8,7 @@ package negocio;
 import entidades.Documento;
 import entidades.Usuario;
 import javax.ejb.Stateless;
+import javax.management.Query;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -34,9 +35,10 @@ public class NegocioImpl implements Negocio {
     }
 
     @Override
-    public void descargarDocumento(Documento d) throws ScoutException {
-        this.em.createQuery("select d from Documento d where d.idDocumento ='" + d.getIdDocumento().toString() + "'").getSingleResult();
-
+    public byte[] descargarDocumento(Documento d) throws ScoutException {
+        Object o = this.em.createQuery("select d.archivo from Documento d where d.idDocumento ='" + d.getIdDocumento().toString() + "'").getSingleResult();
+        byte[] t = (byte[])o;
+        return t;
     }
 
     @Override
