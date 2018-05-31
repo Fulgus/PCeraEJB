@@ -18,9 +18,11 @@ public interface Negocio {
 
     public void registrarUsuario(Usuario u) throws ScoutException;
     
-    public void borrarDocumentacion(Documento d) throws ScoutException;//
+    public void borrarDocumento(Documento d) throws ScoutException;//
     
-    public void descargarDocumento(Documento d) throws ScoutException;
+    public void descargarDocumento(Documento d) throws ScoutException;//
     
-    public void descargarListadoDocumentacion() throws ScoutException;
+    public void descargarListadoDocumentacion() throws ScoutException;//
+    
+    
 }

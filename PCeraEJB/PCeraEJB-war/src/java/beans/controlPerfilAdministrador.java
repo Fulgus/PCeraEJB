@@ -19,6 +19,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.EJB;
 import negocio.Negocio;
 import negocio.ScoutException;
@@ -93,13 +95,16 @@ public class controlPerfilAdministrador implements Serializable {
     
     public void clickBotonBorrarDocumento(Documento d){
         try {
-            this.negocio.borrarDocumentacion(d);
+            this.negocio.borrarDocumento(d);
         } catch (ScoutException ex) {
         }
     }
     
     public void clickBotonDescargarDocumento(Documento d){
-        
+        try {
+            this.negocio.descargarDocumento(d);
+        } catch (ScoutException ex) {
+        }
     }
     
     public void clickBotonBorrarUsuario(){
