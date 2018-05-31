@@ -7,6 +7,7 @@ package negocio;
 
 import entidades.Documento;
 import entidades.Usuario;
+import java.util.List;
 import javax.ejb.Local;
 
 /**
@@ -29,5 +30,7 @@ public interface Negocio {
     public byte[] descargarDocumento(Documento d) throws ScoutException;//
 
     public void descargarListadoDocumentacion() throws ScoutException;//
+
+    public List<Documento> documentosDeUsuario(Integer u) throws ScoutException;//
 
 }

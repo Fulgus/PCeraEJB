@@ -7,6 +7,7 @@ package negocio;
 
 import entidades.Documento;
 import entidades.Usuario;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.management.Query;
 import javax.persistence.EntityManager;
@@ -44,6 +45,12 @@ public class NegocioImpl implements Negocio {
     @Override
     public void descargarListadoDocumentacion() throws ScoutException {
         this.em.createQuery("select d from Documento d").getResultList();
+    }
+
+    @Override
+    public List<Documento> documentosDeUsuario(Integer u) throws ScoutException {
+        List l = this.em.createQuery("select d from Documento d where d.usuarioIdUsuario = '"+u+"'").getResultList();
+        return l;
     }
 
 }
