@@ -7,6 +7,7 @@ package negocio;
 
 import entidades.Evento;
 import entidades.Documento;
+import entidades.Seccion;
 import entidades.Usuario;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,8 +50,9 @@ public class NegocioImpl implements Negocio {
     public void RellenarBd(){
         List<Evento> lista = new ArrayList<Evento>();
         Evento e = new Evento();
+        Seccion sec= new Seccion(0);
         e.setUbicacon("Baena");
-        //e.setSeccion("mamada");
+        e.setSeccion(sec);
         e.setDescripcion("akdfjasdf dfkadfs");
         e.setIdEvento(1);
         e.setNombre("Montar en burro");
