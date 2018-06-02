@@ -50,4 +50,8 @@ public interface Negocio {
     public List<Usuario> getUsuarios();
     
     public Usuario getPerfil(Integer id);
+    
+    public void modificarDocumento (Documento d);
+    
+    public void aniadirDocumento (Documento d);
 }

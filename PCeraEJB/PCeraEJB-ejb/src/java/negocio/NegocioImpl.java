@@ -66,6 +66,17 @@ public class NegocioImpl implements Negocio {
     public void registrarUsuario(Usuario u) throws ScoutException {
         em.persist(u);
     }
+    
+    @Override
+    public void modificarDocumento(Documento d){
+        d.setEstadoArchivo(1);
+        em.merge(d);
+    }
+    
+    @Override
+    public void aniadirDocumento (Documento d){
+        em.persist(d);
+    }
 
     @Override
     public void borrarDocumento(Documento d) throws ScoutException {
