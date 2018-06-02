@@ -56,5 +56,11 @@ public interface Negocio {
     
     public void aniadirDocumento (Documento d);
     
-    public List<Cuota> getCuota();
+    public List<Cuota> getCuotas();
+    
+    public void crearCuota(Cuota c);
+    
+    public Cuota getCuota(Integer id);
+    
+    public List<Cuota> getCuotasAños();
 }

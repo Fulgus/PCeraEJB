@@ -24,6 +24,7 @@ import javax.persistence.PersistenceContext;
 @Stateless
 public class NegocioImpl implements Negocio {
     int contId=0;
+    int contCuotaId=0;
     @PersistenceContext(unitName = "PCeraEJB-ejbPU")
     private EntityManager em; 
 
@@ -115,7 +116,26 @@ public class NegocioImpl implements Negocio {
     }
 
     @Override
-    public List<Cuota> getCuota(){
+    public List<Cuota> getCuotas(){
          return em.createQuery("select c from Cuota c").getResultList();
+    }
+   
+    @Override
+    public void crearCuota(Cuota c){
+        contCuotaId++;
+        c.setIdCuota(contCuotaId);
+        em.persist(c);
+    }
+    
+    @Override
+    public Cuota getCuota(Integer id){
+    Object c = this.em.createQuery("select c from Cuota c where c.idCuota = '" + id + "'").getSingleResult();
+    Cuota cue = (Cuota) c;
+    return cue;
+    }
+            
+    @Override
+    public List<Cuota> getCuotasAños(){
+        return null;
     }
 }
