@@ -47,5 +47,7 @@ public interface Negocio {
 
     public List<Documento> documentosDeUsuario(Integer u) throws ScoutException;//
 
-
+    public List<Usuario> getUsuarios();
+    
+    public Usuario getPerfil(int id);
 }

@@ -89,5 +89,17 @@ public class NegocioImpl implements Negocio {
         List l = this.em.createQuery("select d from Documento d where d.usuarioIdUsuario = '"+u+"'").getResultList();
         return l;
     }
+    
+    @Override
+    public List<Usuario> getUsuarios(){
+        return em.createQuery("select u from Usuario u").getResultList();
+    }
+    
+    @Override
+    public Usuario getPerfil(int id){
+        Object u = this.em.createQuery("select u from Usuario u where u.idUsuario = '" + id + "'").getSingleResult();
+        Usuario user = (Usuario) u;
+        return user;
+    }
 
 }
