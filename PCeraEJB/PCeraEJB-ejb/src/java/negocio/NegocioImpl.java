@@ -103,19 +103,24 @@ public class NegocioImpl implements Negocio {
     }
     
     @Override
-    public List<Usuario> getUsuarios(){
+    public List<Usuario> getUsuarios() throws ScoutException{
         return em.createQuery("select u from Usuario u").getResultList();
     }
     
     @Override
-    public Usuario getPerfil(Integer id){
+    public Usuario getPerfil(Integer id) throws ScoutException{
         Object u = this.em.createQuery("select u from Usuario u where u.idUsuario = '" + id + "'").getSingleResult();
         Usuario user = (Usuario) u;
         return user;
     }
+    
+    @Override
+    public void modificarUsuario(Usuario u) throws ScoutException{
+        em.merge(u);
+    }
 
     @Override
-    public List<Cuota> getCuota(){
+    public List<Cuota> getCuota() throws ScoutException{
          return em.createQuery("select c from Cuota c").getResultList();
     }
 }
