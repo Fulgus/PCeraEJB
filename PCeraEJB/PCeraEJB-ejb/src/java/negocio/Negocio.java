@@ -6,6 +6,7 @@
 package negocio;
 
 
+import entidades.Cuota;
 import entidades.Evento;
 
 import entidades.Documento;
@@ -54,4 +55,6 @@ public interface Negocio {
     public void modificarDocumento (Documento d);
     
     public void aniadirDocumento (Documento d);
+    
+    public List<Cuota> getCuota();
 }

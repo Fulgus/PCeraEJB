@@ -5,6 +5,7 @@
  */
 package negocio;
 
+import entidades.Cuota;
 import entidades.Evento;
 import entidades.Documento;
 import entidades.Seccion;
@@ -113,4 +114,8 @@ public class NegocioImpl implements Negocio {
         return user;
     }
 
+    @Override
+    public List<Cuota> getCuota(){
+         return em.createQuery("select c from Cuota c").getResultList();
+    }
 }
