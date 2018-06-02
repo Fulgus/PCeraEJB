@@ -49,5 +49,5 @@ public interface Negocio {
 
     public List<Usuario> getUsuarios();
     
-    public Usuario getPerfil(int id);
+    public Usuario getPerfil(Integer id);
 }

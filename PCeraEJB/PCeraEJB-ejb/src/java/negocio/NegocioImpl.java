@@ -96,7 +96,7 @@ public class NegocioImpl implements Negocio {
     }
     
     @Override
-    public Usuario getPerfil(int id){
+    public Usuario getPerfil(Integer id){
         Object u = this.em.createQuery("select u from Usuario u where u.idUsuario = '" + id + "'").getSingleResult();
         Usuario user = (Usuario) u;
         return user;
