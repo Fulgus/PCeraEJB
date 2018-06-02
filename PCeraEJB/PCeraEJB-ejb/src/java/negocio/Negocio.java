@@ -48,13 +48,13 @@ public interface Negocio {
 
     public List<Documento> documentosDeUsuario(Integer u) throws ScoutException;//
 
-    public List<Usuario> getUsuarios();
+    public List<Usuario> getUsuarios() throws ScoutException;
     
-    public Usuario getPerfil(Integer id);
+    public Usuario getPerfil(Integer id) throws ScoutException;
     
-    public void modificarDocumento (Documento d);
+    public void modificarDocumento (Documento d) throws ScoutException;
     
-    public void aniadirDocumento (Documento d);
+    public void aniadirDocumento (Documento d) throws ScoutException;
     
     public List<Cuota> getCuotas();
     
@@ -63,4 +63,6 @@ public interface Negocio {
     public Cuota getCuota(Integer id);
     
     public List<Cuota> getCuotasAños();
+    
+   public void modificarUsuario(Usuario u)throws ScoutException;
 }
