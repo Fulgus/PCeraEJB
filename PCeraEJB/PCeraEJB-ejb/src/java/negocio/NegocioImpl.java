@@ -163,7 +163,7 @@ public class NegocioImpl implements Negocio {
     
     @Override
     public Usuario login(String user, String contrasenia) throws UsuarioNoRegistradoException,ContraseniaInvalidaException{
-        List<Usuario> usuario = em.createQuery("select u from Usuario u where u.usuario = user'").getResultList();
+        List<Usuario> usuario = em.createQuery("select u from Usuario u where u.usuario = "+user+"'").getResultList();
         if(usuario.isEmpty()){
             throw new UsuarioNoRegistradoException("Usuario/Contraseña invalido");
         }else{
