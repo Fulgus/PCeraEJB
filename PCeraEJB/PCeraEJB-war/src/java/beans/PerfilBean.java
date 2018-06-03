@@ -10,6 +10,9 @@ import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.ejb.EJB;
+import negocio.Negocio;
+import negocio.ScoutException;
 
 /**
  *
@@ -20,6 +23,7 @@ import java.util.Date;
 public class PerfilBean {
     
     private Usuario miembro;
+    private Usuario perfil;
     //Campos para usuario ficticio.
     /*private String usuario;
     private String nombre;
@@ -34,22 +38,18 @@ public class PerfilBean {
     private Date fecha_alta;
     private String telefono;
     private String url_imagen;
+    
+    @EJB
+    private Negocio negocio;
     /**
      * Creates a new instance of PerfilBean
      */
-    public PerfilBean() {
+    public PerfilBean() throws ScoutException {
         // creamos datos ficticios
         miembro = new Usuario(1, "pepe", "asdf", "Pepe", "García", "23412332R", new Date(1999, 5, 12), Usuario.PERF_EDUCANDO, "mail@mail.com", "casa, 4", "mucho");
+        //perfil = negocio.getPerfil(1);
         
-        //NOTA: datos ficticios para evaluar en un futuro.
-        /*this.usuario="scouter96";
-        this.nombre="Pedro";
-        this.apellidos="Rajoy Iglesias";
-        this.localidad="Murcia";
-        this.sexo="Varón";
-        this.direccion="C/pppppp, 123";
-        this.email="asdf@1234.com";
-        */
+        //----Dummy
         this.telefono="634872123";
         this.grupo="Lobatos";
         this.fecha_nacimiento =  new Date("5/12/1999");
@@ -171,6 +171,10 @@ public class PerfilBean {
         SimpleDateFormat df = new SimpleDateFormat ("dd/MM/yyyy");
         String fecha = df.format(fecha_alta);
         return fecha;
+    }
+        
+    public void modificarUsuario(Usuario u) throws ScoutException{
+        negocio.modificarUsuario(u);
     }
     
     
