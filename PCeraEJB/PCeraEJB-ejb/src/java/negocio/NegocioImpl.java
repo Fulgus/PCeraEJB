@@ -29,7 +29,7 @@ import javax.persistence.PersistenceContext;
 @Stateless
 public class NegocioImpl implements Negocio {
 
-    int contId = 0;
+    Integer contId = 0;
     int contCuotaId = 0;
     @PersistenceContext(unitName = "PCeraEJB-ejbPU")
     private EntityManager em;
@@ -41,6 +41,7 @@ public class NegocioImpl implements Negocio {
         contId++;
         e.setIdEvento(contId);
         em.persist(e);
+        e.getSeccion().getEventoCollection().add(e); // añado el evento a la coleccion de eventos de la seccion a la que pertenece
     }
 
     @Override
@@ -158,6 +159,23 @@ public class NegocioImpl implements Negocio {
         Object c = this.em.createQuery("select c from Cuota c where c.idCuota = '" + id + "'").getSingleResult();
         Cuota cue = (Cuota) c;
         return cue;
+    }
+    
+    @Override
+    public Usuario login(String user, String contrasenia) throws UsuarioNoRegistradoException,ContraseniaInvalidaException{
+        List<Usuario> usuario = em.createQuery("select u from Usuario u where u.usuario = '"+user+"'").getResultList();
+        if(usuario.isEmpty()){
+            throw new UsuarioNoRegistradoException("Usuario/Contraseña invalido");
+        }else{
+            Usuario u = usuario.get(0);
+            if(!u.getContrasenia().equals(contrasenia)){
+                throw new ContraseniaInvalidaException("Usuario/Contraseña invalido");
+            }else if(!u.getUsuario().equals(user)){
+                throw new ContraseniaInvalidaException("Usuario/Contraseña invalido");
+            }else{
+                return u;
+            }
+        }
     }
 
 }

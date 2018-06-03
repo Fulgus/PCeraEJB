@@ -7,8 +7,10 @@ package entidades;
  * and open the template in the editor.
  */
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -28,16 +30,24 @@ public class Seccion implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer idSeccion;
     private String nombre;
-    @OneToMany(mappedBy = "seccion")
+ @OneToMany(mappedBy = "seccion", cascade=CascadeType.PERSIST, orphanRemoval = true)
     private List<Promesa> promesaCollection;
-    @OneToMany(mappedBy = "seccion")
-    private List<Evento> eventoCollection;
+ @OneToMany(mappedBy = "seccion", cascade=CascadeType.PERSIST, orphanRemoval = true)
+    private List<Evento> eventoCollection = new ArrayList<>();
 
     public Seccion() {
     }
 
     public Seccion(Integer idSeccion) {
         this.idSeccion = idSeccion;
+    }
+        public Seccion(String nombre) {
+      
+            if(nombre.equalsIgnoreCase("castores")){
+            this.idSeccion=0;
+            this.nombre= nombre;
+            
+        }
     }
 
     public Integer getIdSeccion() {
