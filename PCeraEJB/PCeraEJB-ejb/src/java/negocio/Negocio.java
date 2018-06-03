@@ -38,7 +38,7 @@ public interface Negocio {
 
     public byte[] descargarDocumento(Documento d) throws ScoutException;//
 
-    public void descargarListadoDocumentacion() throws ScoutException;//
+    public byte[] descargarListadoDocumentacion() throws ScoutException;//
 
     public List<Documento> documentosDeUsuario(Integer u) throws ScoutException;//
 
