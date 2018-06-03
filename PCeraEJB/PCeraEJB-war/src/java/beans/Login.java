@@ -8,6 +8,7 @@ import entidades.Usuario;
 import java.util.List;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import negocio.ContraseniaInvalidaException;
