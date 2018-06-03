@@ -46,7 +46,7 @@ public class ControlDocumentos implements Serializable{
          d1.setIdDocumento(cont);
          cont ++;
          docs.add(d1);
-         negocio.aniadirDocumento(d1);
+         //negocio.aniadirDocumento(d1);
          
          Documento d2 = new Documento();
          d2.setNombre("Doc2");
@@ -55,7 +55,7 @@ public class ControlDocumentos implements Serializable{
          d2.setIdDocumento(cont);
          cont ++;
          docs.add(d2);
-         negocio.aniadirDocumento(d2);
+        // negocio.aniadirDocumento(d2);
     }
     
     
@@ -116,17 +116,14 @@ public class ControlDocumentos implements Serializable{
     }
     
     public String subirDoc(Documento doc) throws ScoutException{
-        negocio.aniadirDocumento(doc);
         return "subirDocumento.xhtml";
     }
     
     public String descargarDoc(Documento doc) throws ScoutException{
-        negocio.descargarDocumento(doc);
         return "descargarDocumento.xhtml";
     }
     
     public String modificarDoc(Documento doc) throws ScoutException{
-        negocio.modificarDocumento(doc);
         return "modificarDocumento.xhtml";
     }
     

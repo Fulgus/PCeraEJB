@@ -5,6 +5,7 @@
  */
 package beans;
 
+import entidades.Documento;
 import entidades.Usuario;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
@@ -21,7 +22,7 @@ import negocio.ScoutException;
 @Named(value = "perfil")
 @RequestScoped
 public class PerfilBean {
-    
+
     private Usuario miembro;
     private Usuario perfil;
     //Campos para usuario ficticio.
@@ -55,15 +56,15 @@ public class PerfilBean {
         this.fecha_nacimiento =  new Date("5/12/1999");
         this.fecha_jura_bandera = new Date("2/15/2015");
         this.fecha_alta = new Date("10/30/2014");
-        this.url_imagen="img-profile.png";
+        this.url_imagen = "img-profile.png";
     }
-    
-    public String getImagen(){
+
+    public String getImagen() {
         //imagen por defecto por ahora.
         return url_imagen;
     }
-    
-    public Usuario getMiembro(){
+
+    public Usuario getMiembro() {
         return miembro;
     }
 
@@ -154,21 +155,21 @@ public class PerfilBean {
     public void setFecha_alta(Date fecha_alta) {
         this.fecha_alta = fecha_alta;
     }
-    
-    public String mostrarFecha_juraBand(){
-        SimpleDateFormat df = new SimpleDateFormat ("dd/MM/yyyy");
+
+    public String mostrarFecha_juraBand() {
+        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         String fecha = df.format(fecha_jura_bandera);
         return fecha;
     }
-    
-    public String mostrarFecha_nacimiento(){
-        SimpleDateFormat df = new SimpleDateFormat ("dd/MM/yyyy");
+
+    public String mostrarFecha_nacimiento() {
+        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         String fecha = df.format(getFecha_nacimiento());
         return fecha;
     }
-    
-        public String mostrarFecha_alta(){
-        SimpleDateFormat df = new SimpleDateFormat ("dd/MM/yyyy");
+
+    public String mostrarFecha_alta() {
+        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         String fecha = df.format(fecha_alta);
         return fecha;
     }
@@ -181,37 +182,36 @@ public class PerfilBean {
     public String clickLinkModificar() {
         return "modificarPerfil.xhtml";
     }
-    
+
     public String clickLinkCambiarContrasenia() {
         return "modificarContrasenia.xhtml";
     }
-    
+
     public String clickLinkPagarCuota() {
         return "PagarCuota.xhtml";
     }
-    
-    public String clickLinkVerDocumentacion() {
+
+    public String clickLinkVerDocumentacion() throws ScoutException {
         return "documentosPrincipal.xhtml";
     }
-    
+
     public String clickLinkGestionUsuarios() {
         return "gestUsuarios.xhtml";
     }
-    
+
     public String clickLinkGestionCuotas() {
         return "GetionarCuota.xhtml";
     }
-    
+
     public String clickLinkGestionEventos() {
         return "GestionEventos.xhtml";
     }
-    
+
     public String clickLinkGestionDocumentacion() {
         return "GestionDocumentacion.xhtml";
     }
-    
+
     public String clickLinkPrivilegios() {
         return "privilegios.xhtml";
     }
 }
-
