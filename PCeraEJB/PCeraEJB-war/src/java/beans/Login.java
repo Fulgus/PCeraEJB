@@ -8,6 +8,7 @@ import entidades.Usuario;
 import java.util.List;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import negocio.ContraseniaInvalidaException;
 import negocio.NegocioImpl;
@@ -54,6 +55,8 @@ public class Login {
             ctrl.setUsuario(usuario);
             return ctrl.clickLinkInicio();
         }catch(ContraseniaInvalidaException | UsuarioNoRegistradoException e){
+             FacesContext ctx = FacesContext.getCurrentInstance();
+             ctx.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuario no valido", "Usuario no valido"));
             return null;
         }
 
