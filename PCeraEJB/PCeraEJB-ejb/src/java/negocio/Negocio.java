@@ -56,7 +56,5 @@ public interface Negocio {
     
     public Cuota getCuota(Integer id);
     
-    public List<Cuota> getCuotasAños();
-    
    public void modificarUsuario(Usuario u)throws ScoutException;
 }

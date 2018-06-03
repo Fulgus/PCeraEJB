@@ -160,8 +160,4 @@ public class NegocioImpl implements Negocio {
         return cue;
     }
 
-    @Override
-    public List<Cuota> getCuotasAños() {
-        return null;
-    }
 }
