@@ -57,4 +57,6 @@ public interface Negocio {
     public Cuota getCuota(Integer id);
     
    public void modificarUsuario(Usuario u)throws ScoutException;
+   
+   public Usuario login(String usuario, String contrasenia) throws UsuarioNoRegistradoException,ContraseniaInvalidaException;
 }

@@ -159,5 +159,22 @@ public class NegocioImpl implements Negocio {
         Cuota cue = (Cuota) c;
         return cue;
     }
+    
+    @Override
+    public Usuario login(String user, String contrasenia) throws UsuarioNoRegistradoException,ContraseniaInvalidaException{
+        List<Usuario> usuario = em.createQuery("select u from Usuario u where u.usuario = user'").getResultList();
+        if(usuario.isEmpty()){
+            throw new UsuarioNoRegistradoException("Usuario/Contraseña invalido");
+        }else{
+            Usuario u = usuario.get(0);
+            if(!u.getContrasenia().equals(contrasenia)){
+                throw new ContraseniaInvalidaException("Usuario/Contraseña invalido");
+            }else if(!u.getUsuario().equals(user)){
+                throw new ContraseniaInvalidaException("Usuario/Contraseña invalido");
+            }else{
+                return u;
+            }
+        }
+    }
 
 }
