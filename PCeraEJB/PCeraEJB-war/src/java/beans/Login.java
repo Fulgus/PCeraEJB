@@ -68,7 +68,7 @@ public class Login {
 
     public String autenticar() throws ScoutException  {
         // Implementar este mÃ©todo
-       /* Iterator it = usuarios.iterator();
+       Iterator it = usuarios.iterator();
         boolean encontrado = false;
         Usuario user = null;
         while (it.hasNext() && !encontrado) {
@@ -93,11 +93,12 @@ public class Login {
 
         } else {
             return null;
-        }*/
-       Usuario u = new Usuario(3, "admin", "admin", "admin", "García", "23412332R", new Date(1997, 5, 12), Usuario.PERF_ADMINISTRADOR, "mail@mail.com", "casa, 4", "mucho");
-       negocio.registrarUsuario(u);
+        
+       /*Usuario u = new Usuario(3, "admin", "admin", "admin", "García", "23412332R", new Date(1997, 5, 12), Usuario.PERF_ADMINISTRADOR, "mail@mail.com", "casa, 4", "mucho");
+       negocio.registrarUsuario(u);*/
        
-       return null;
+       //return null;
+        }
     }
 }
 
