@@ -12,7 +12,7 @@
         <ui:define name="contenido">
             <h:body> 
                 <img id="foto_cerrar_pest" src = "Close_Box_Red.png"></img>
-                <h1 align="center">Listado de cuotas pagadas del año 2014</h1>
+                <h1 align="center">Listado de cuotas pagadas</h1>
                 <br />
             <div id="popup">
                 <a href= "VerCuota.xhtml" ><img id="foto_cerrar_pest" src = "Close_Box_Red.png"></img></a>
@@ -37,13 +37,13 @@
                         </h:column>
 
                         <h:column>
-                            <f:facet name = "header">Fecha de Pago</f:facet>
-                            <h:outputText value="#{c.fecha}"/>
+                            <f:facet name = "header">Estado</f:facet>
+                            <h:outputText value="#{controlCuota.EstadoPago(c)}"/>
                         </h:column>
 
                         <h:column>
                             <f:facet name = "header">Recibo IRPF</f:facet>
-                            <h:commandButton value="enviar" />
+                            <h:commandButton value="enviar" action="#{controlPerfilAdministrador.clickEnviarIRPF()}"/>
                         </h:column>
                     </h:dataTable>
                 </h:form>

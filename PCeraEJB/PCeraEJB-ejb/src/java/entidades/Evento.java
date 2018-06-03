@@ -98,12 +98,16 @@ public class Evento implements Serializable {
         this.usuarioCollection = usuarioCollection;
     }
 
-    public String getSeccion() {
-        return seccion.getNombre();
+
+    public Seccion getSeccion() {
+        return seccion;
+
     }
 
-    public void setSeccion(String seccion) {
-        this.seccion.setNombre(seccion);
+
+    public void setSeccion(Seccion seccion) {
+        this.seccion = seccion;
+
     }
 
     @Override

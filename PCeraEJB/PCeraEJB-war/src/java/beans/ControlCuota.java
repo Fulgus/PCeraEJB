@@ -36,10 +36,10 @@ public class ControlCuota {
         l.add(new Usuario(5, "TheCook", "2018", "Adolfo", "García", "23412332R", new Date(1999, 5, 12), Usuario.PERF_EDUCANDO, "mail@mail.com", "casa, 4", "mucho"));
         l.add(new Usuario(6, "JijiNoseMeOcurreMas", "2019", "Lucia", "García", "23412332R", new Date(1999, 5, 12), Usuario.PERF_EDUCANDO, "mail@mail.com", "casa, 4", "mucho"));
         
-        c.add(new Cuota(l.get(0),1, new Date("5/12/2014"),30));
-        c.add(new Cuota(l.get(1),1, new Date("5/12/2015"),35));
-        c.add(new Cuota(l.get(2),1, new Date("5/12/2016"),30));
-        c.add(new Cuota(l.get(3),1, new Date("5/12/2017"),32));
+        c.add(new Cuota(1,l.get(0),1, new Date("5/12/2014"),30));
+        c.add(new Cuota(2,l.get(1),1, new Date("5/12/2015"),35));
+        c.add(new Cuota(3,l.get(2),1, new Date("5/12/2016"),30));
+        c.add(new Cuota(4,l.get(3),1, new Date("5/12/2017"),32));
     }
     
     public String anioFecha(Date d){
@@ -53,6 +53,16 @@ public class ControlCuota {
         int num;
         num= l.size();
         return num;
+    }
+    
+    public String EstadoPago(Cuota c){
+        String estado;
+        if(c.getEstado()==1){
+            estado="Pagado";
+        }else{
+            estado="No Pagado";
+        }
+        return estado;
     }
     
     
