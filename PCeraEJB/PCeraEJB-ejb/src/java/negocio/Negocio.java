@@ -5,7 +5,12 @@
  */
 package negocio;
 
+
+import entidades.Cuota;
+import entidades.Evento;
+
 import entidades.Documento;
+
 import entidades.Usuario;
 import java.util.List;
 import javax.ejb.Local;
@@ -19,6 +24,16 @@ public interface Negocio {
 
     public void registrarUsuario(Usuario u) throws ScoutException;
 
+    
+    public void crearEvento(Evento e);
+    
+    public List<Evento> getEv();
+    
+    public void editarEvento(Evento e);
+    
+    public void RellenarBd();
+
+
     public void borrarDocumento(Documento d) throws ScoutException;//
 
     public byte[] descargarDocumento(Documento d) throws ScoutException;//
@@ -27,4 +42,21 @@ public interface Negocio {
 
     public List<Documento> documentosDeUsuario(Integer u) throws ScoutException;//
 
+    public List<Usuario> getUsuarios() throws ScoutException;
+    
+    public Usuario getPerfil(Integer id) throws ScoutException;
+    
+    public void modificarDocumento (Documento d) throws ScoutException;
+    
+    public void aniadirDocumento (Documento d) throws ScoutException;
+    
+    public List<Cuota> getCuotas();
+    
+    public void crearCuota(Cuota c);
+    
+    public Cuota getCuota(Integer id);
+    
+    public List<Cuota> getCuotasAños();
+    
+   public void modificarUsuario(Usuario u)throws ScoutException;
 }

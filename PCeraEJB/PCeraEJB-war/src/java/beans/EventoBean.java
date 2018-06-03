@@ -6,6 +6,7 @@
 package beans;
 
 import entidades.Evento;
+import entidades.Seccion;
 import entidades.Usuario;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +25,7 @@ public class EventoBean {
 
     private String nombre;
     private String lugar;
-    private String seccion;
+    private Seccion seccion;
     private String descripcion;
     private Integer precio;
     private List<Evento> ev = new ArrayList<>();
@@ -39,7 +40,7 @@ public class EventoBean {
          Evento e1=new Evento();
          
          e1.setNombre("Feria Malaga");
-         e1.setSeccion("Tropa");
+         //e1.setSeccion("Tropa");
          e1.setPrecio(1);
          e1.setDescripcion("Traerse arandanos");
          e1.setUbicacon("Malaga La Bella");
@@ -49,7 +50,7 @@ public class EventoBean {
          
          Evento e2=new Evento();
          e2.setNombre("Excursion con burros");
-         e2.setSeccion("Castores");
+         //e2.setSeccion("Castores");
          e2.setPrecio(6);
          e2.setDescripcion("Cuidaito con los burros");
          e2.setUbicacon("La Linea de la concepcion");
@@ -212,14 +213,14 @@ public class EventoBean {
     /**
      * @return the seccion
      */
-    public String getSeccion() {
+    public Seccion getSeccion() {
         return seccion;
     }
 
     /**
      * @param seccion the seccion to set
      */
-    public void setSeccion(String seccion) {
+    public void setSeccion(Seccion seccion) {
         this.seccion = seccion;
     }
 
