@@ -42,7 +42,7 @@ public class Evento implements Serializable {
     @ManyToOne(optional = false)
     private Seccion seccion;
 
-    public Evento() {
+   public Evento() {
     }
 
     public Evento(Integer idEvento) {
@@ -90,7 +90,7 @@ public class Evento implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Usuario> getUsuarioCollection() {
+    public List<Usuario> getUsuarioCollection() {
         return usuarioCollection;
     }
 
@@ -109,6 +109,10 @@ public class Evento implements Serializable {
         this.seccion = seccion;
 
     }
+        public void setSeccion(String nombre_seccion) {
+        this.seccion = new Seccion(nombre_seccion);
+
+}
 
     @Override
     public int hashCode() {
@@ -161,7 +165,7 @@ public class Evento implements Serializable {
 
     @Override
     public String toString() {
-        return "Evento{" + "idEvento=" + idEvento + ", nombre=" + nombre + ", ubicacon=" + ubicacon + ", descripcion=" + descripcion + ", precio=" + precio + ", usuarioCollection=" + usuarioCollection + ", seccion=" + seccion + '}';
+        return "Evento{" + "idEvento=" + idEvento + ", nombre=" + nombre + ", ubicacon=" + ubicacon + ", descripcion=" + descripcion + ", precio=" + precio + ", usuarioCollection="  + ", seccion=" + seccion.getNombre() + '}';
     }
 
    

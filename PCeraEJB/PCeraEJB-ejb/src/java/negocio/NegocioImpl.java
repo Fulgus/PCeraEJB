@@ -29,7 +29,7 @@ import javax.persistence.PersistenceContext;
 @Stateless
 public class NegocioImpl implements Negocio {
 
-    int contId = 0;
+    Integer contId = 0;
     int contCuotaId = 0;
     @PersistenceContext(unitName = "PCeraEJB-ejbPU")
     private EntityManager em;
@@ -41,6 +41,7 @@ public class NegocioImpl implements Negocio {
         contId++;
         e.setIdEvento(contId);
         em.persist(e);
+        e.getSeccion().getEventoCollection().add(e); // añado el evento a la coleccion de eventos de la seccion a la que pertenece
     }
 
     @Override

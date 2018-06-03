@@ -10,8 +10,10 @@ import entidades.Seccion;
 import entidades.Usuario;
 import java.util.ArrayList;
 import java.util.List;
+import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
+import negocio.Negocio;
 
 /**
  *
@@ -28,25 +30,24 @@ public class EventoBean {
     private Seccion seccion;
     private String descripcion;
     private Integer precio;
+    private String nombre_seccion;
     private List<Evento> ev = new ArrayList<>();
     private List<Usuario> usuarioCollection = new ArrayList<>();
     private static Evento seleccionado;
 
-    /**
-     * Creates a new instance of EventoBean
-     */
+  @EJB Negocio negocio;
+    
     public EventoBean() {
             
          Evento e1=new Evento();
          
+         Seccion seccion= new Seccion("Castores");
          e1.setNombre("Feria Malaga");
-         //e1.setSeccion("Tropa");
+         e1.setSeccion("Castores");
          e1.setPrecio(1);
          e1.setDescripcion("Traerse arandanos");
          e1.setUbicacon("Malaga La Bella");
-         e1.setIdEvento(cont);
-         cont++;
-         ev.add(e1);
+         negocio.crearEvento(e1);
          
          Evento e2=new Evento();
          e2.setNombre("Excursion con burros");
@@ -80,7 +81,7 @@ public class EventoBean {
         aux.setPrecio(precio);
         aux.setSeccion(getSeccion());
         aux.setUbicacon(lugar);
-        aux.setUsuarioCollection(usuarioCollection);
+        aux.setUsuarioCollection(seleccionado.getUsuarioCollection());
         aux.setIdEvento(seleccionado.getIdEvento());
 
         seleccionado = aux;
@@ -99,7 +100,7 @@ public class EventoBean {
     }
 
     public List<Evento> getEv() {
-        return ev;
+        return negocio.getEv();
     }
 
     public String editar() {
@@ -181,21 +182,28 @@ public class EventoBean {
 
     public String enviarEvento() {
         // usuario = cta.getUsuarioLogeado();
-        cont++; // Me lleva el contador de los eventos
+       // negocio.RellenarBd();
+      
         Evento aux = new Evento();
-
+        setSeleccionado(aux);
         aux.setDescripcion(descripcion);
-        aux.setIdEvento(cont);
+    //    aux.setIdEvento(cont);
         aux.setNombre(nombre);
-        aux.setSeccion(seccion);
+        aux.setSeccion(nombre_seccion);
         aux.setPrecio(precio);
         aux.setUbicacon(lugar);
+         List<Evento> l =new ArrayList<>();
+
+         negocio.crearEvento(aux);
+
+       
+       // aux.setUsuarioCollection(new ArrayList<>());
+       // l.add(aux);
      //   aux.setUsuarioCollection(usuarioCollection);
 
         // aux.setImagen(imagen);
-        setSeleccionado(aux);
-        crearEvento(aux);
-        return "evento.xhtml";
+
+        return "index.xhtml";
     }
 
     private void eliminarEvento(Evento seleccionado) {
@@ -213,16 +221,32 @@ public class EventoBean {
     /**
      * @return the seccion
      */
+    
+    
     public Seccion getSeccion() {
         return seccion;
     }
+    
+    
+    
+     public String getNombre_seccion(){
+    return nombre_seccion;
+}
+         public  void setNombre_seccion(String nombre_seccion){
+    this.nombre_seccion=nombre_seccion;
+}
+    
 
     /**
+     * @param nombre_seccion
      * @param seccion the seccion to set
      */
-    public void setSeccion(Seccion seccion) {
-        this.seccion = seccion;
-    }
+         /*
+         A partir del dato recibido por el formulario se construye el objeto seccion
+         con su nombre e id, ya que evento necesita la clave de id_seccion
+         */
+    public void setSeccion(String nombre_seccion) {
+        this.seccion = new Seccion(nombre_seccion);
 
 }
-
+}
