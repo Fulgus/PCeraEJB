@@ -10,8 +10,11 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
+import negocio.Negocio;
+import negocio.ScoutException;
 
 /**
  *
@@ -27,17 +30,32 @@ public class ControlDocumentos implements Serializable{
     private Date fecha;
     private Integer estadoDoc;
     private List<Documento> docs = new ArrayList<>();
+    
+    @EJB
+    private Negocio negocio;
+    
 
-     public ControlDocumentos() {
+    
+
+     public ControlDocumentos() throws ScoutException {
+         int cont = 1;
          Documento d1 = new Documento();
          d1.setNombre("Doc1");
          d1.setFechaSubida(new Date("32/13/2019"));
+         d1.setEstadoArchivo(1);
+         d1.setIdDocumento(cont);
+         cont ++;
          docs.add(d1);
+         negocio.aniadirDocumento(d1);
          
          Documento d2 = new Documento();
          d2.setNombre("Doc2");
          d2.setFechaSubida(new Date("31/05/2018"));
+         d2.setEstadoArchivo(0);
+         d2.setIdDocumento(cont);
+         cont ++;
          docs.add(d2);
+         negocio.aniadirDocumento(d2);
     }
     
     
@@ -97,15 +115,18 @@ public class ControlDocumentos implements Serializable{
         return "perfilEducando.xhtml";
     }
     
-    public String subirDoc(){
+    public String subirDoc(Documento doc) throws ScoutException{
+        negocio.aniadirDocumento(doc);
         return "subirDocumento.xhtml";
     }
     
-    public String descargarDoc(){
+    public String descargarDoc(Documento doc) throws ScoutException{
+        negocio.descargarDocumento(doc);
         return "descargarDocumento.xhtml";
     }
     
-    public String modificarDoc(){
+    public String modificarDoc(Documento doc) throws ScoutException{
+        negocio.modificarDocumento(doc);
         return "modificarDocumento.xhtml";
     }
     

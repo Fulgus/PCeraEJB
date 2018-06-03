@@ -4,16 +4,21 @@
  */
 package beans;
 
+import entidades.Documento;
 import entidades.Usuario;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+import negocio.Negocio;
+import negocio.ScoutException;
 
 /**
  *
@@ -27,8 +32,11 @@ public class Login {
     private String contrasenia;
     private List<Usuario> usuarios;
 
-    @Inject
+    @Inject   
     private ControlInicio ctrl;
+    
+    @EJB
+     private Negocio negocio;
 
     /**
      * Creates a new instance of Login
@@ -58,9 +66,9 @@ public class Login {
         this.contrasenia = contrasenia;
     }
 
-    public String autenticar() {
+    public String autenticar() throws ScoutException  {
         // Implementar este mÃ©todo
-        Iterator it = usuarios.iterator();
+       /* Iterator it = usuarios.iterator();
         boolean encontrado = false;
         Usuario user = null;
         while (it.hasNext() && !encontrado) {
@@ -85,7 +93,11 @@ public class Login {
 
         } else {
             return null;
-        }
+        }*/
+       Usuario u = new Usuario(3, "admin", "admin", "admin", "García", "23412332R", new Date(1997, 5, 12), Usuario.PERF_ADMINISTRADOR, "mail@mail.com", "casa, 4", "mucho");
+       negocio.registrarUsuario(u);
+       
+       return null;
     }
 }
 
