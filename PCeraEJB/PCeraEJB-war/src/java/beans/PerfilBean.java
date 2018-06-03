@@ -5,11 +5,15 @@
  */
 package beans;
 
+import entidades.Documento;
 import entidades.Usuario;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.ejb.EJB;
+import negocio.Negocio;
+import negocio.ScoutException;
 
 /**
  *
@@ -18,7 +22,7 @@ import java.util.Date;
 @Named(value = "perfil")
 @RequestScoped
 public class PerfilBean {
-    
+
     private Usuario miembro;
     //Campos para usuario ficticio.
     /*private String usuario;
@@ -34,13 +38,18 @@ public class PerfilBean {
     private Date fecha_alta;
     private String telefono;
     private String url_imagen;
+
+    @EJB
+    private Negocio negocio;
+    private Object d1;
+
     /**
      * Creates a new instance of PerfilBean
      */
     public PerfilBean() {
         // creamos datos ficticios
         miembro = new Usuario(1, "pepe", "asdf", "Pepe", "García", "23412332R", new Date(1999, 5, 12), Usuario.PERF_EDUCANDO, "mail@mail.com", "casa, 4", "mucho");
-        
+
         //NOTA: datos ficticios para evaluar en un futuro.
         /*this.usuario="scouter96";
         this.nombre="Pedro";
@@ -49,21 +58,21 @@ public class PerfilBean {
         this.sexo="Varón";
         this.direccion="C/pppppp, 123";
         this.email="asdf@1234.com";
-        */
-        this.telefono="634872123";
-        this.grupo="Lobatos";
-        this.fecha_nacimiento =  new Date("5/12/1999");
+         */
+        this.telefono = "634872123";
+        this.grupo = "Lobatos";
+        this.fecha_nacimiento = new Date("5/12/1999");
         this.fecha_jura_bandera = new Date("2/15/2015");
         this.fecha_alta = new Date("10/30/2014");
-        this.url_imagen="img-profile.png";
+        this.url_imagen = "img-profile.png";
     }
-    
-    public String getImagen(){
+
+    public String getImagen() {
         //imagen por defecto por ahora.
         return url_imagen;
     }
-    
-    public Usuario getMiembro(){
+
+    public Usuario getMiembro() {
         return miembro;
     }
 
@@ -154,60 +163,58 @@ public class PerfilBean {
     public void setFecha_alta(Date fecha_alta) {
         this.fecha_alta = fecha_alta;
     }
-    
-    public String mostrarFecha_juraBand(){
-        SimpleDateFormat df = new SimpleDateFormat ("dd/MM/yyyy");
+
+    public String mostrarFecha_juraBand() {
+        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         String fecha = df.format(fecha_jura_bandera);
         return fecha;
     }
-    
-    public String mostrarFecha_nacimiento(){
-        SimpleDateFormat df = new SimpleDateFormat ("dd/MM/yyyy");
+
+    public String mostrarFecha_nacimiento() {
+        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         String fecha = df.format(getFecha_nacimiento());
         return fecha;
     }
-    
-        public String mostrarFecha_alta(){
-        SimpleDateFormat df = new SimpleDateFormat ("dd/MM/yyyy");
+
+    public String mostrarFecha_alta() {
+        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         String fecha = df.format(fecha_alta);
         return fecha;
     }
-    
-    
+
     public String clickLinkModificar() {
         return "modificarPerfil.xhtml";
     }
-    
+
     public String clickLinkCambiarContrasenia() {
         return "modificarContrasenia.xhtml";
     }
-    
+
     public String clickLinkPagarCuota() {
         return "PagarCuota.xhtml";
     }
-    
-    public String clickLinkVerDocumentacion() {
+
+    public String clickLinkVerDocumentacion() throws ScoutException {
         return "documentosPrincipal.xhtml";
     }
-    
+
     public String clickLinkGestionUsuarios() {
         return "gestUsuarios.xhtml";
     }
-    
+
     public String clickLinkGestionCuotas() {
         return "GetionarCuota.xhtml";
     }
-    
+
     public String clickLinkGestionEventos() {
         return "GestionEventos.xhtml";
     }
-    
+
     public String clickLinkGestionDocumentacion() {
         return "GestionDocumentacion.xhtml";
     }
-    
+
     public String clickLinkPrivilegios() {
         return "privilegios.xhtml";
     }
 }
-
