@@ -24,6 +24,7 @@ import negocio.ScoutException;
 public class PerfilBean {
 
     private Usuario miembro;
+    private Usuario perfil;
     //Campos para usuario ficticio.
     /*private String usuario;
     private String nombre;
@@ -38,30 +39,21 @@ public class PerfilBean {
     private Date fecha_alta;
     private String telefono;
     private String url_imagen;
-
+    
     @EJB
     private Negocio negocio;
-    private Object d1;
-
     /**
      * Creates a new instance of PerfilBean
      */
-    public PerfilBean() {
+    public PerfilBean() throws ScoutException {
         // creamos datos ficticios
         miembro = new Usuario(1, "pepe", "asdf", "Pepe", "García", "23412332R", new Date(1999, 5, 12), Usuario.PERF_EDUCANDO, "mail@mail.com", "casa, 4", "mucho");
-
-        //NOTA: datos ficticios para evaluar en un futuro.
-        /*this.usuario="scouter96";
-        this.nombre="Pedro";
-        this.apellidos="Rajoy Iglesias";
-        this.localidad="Murcia";
-        this.sexo="Varón";
-        this.direccion="C/pppppp, 123";
-        this.email="asdf@1234.com";
-         */
-        this.telefono = "634872123";
-        this.grupo = "Lobatos";
-        this.fecha_nacimiento = new Date("5/12/1999");
+        //perfil = negocio.getPerfil(1);
+        
+        //----Dummy
+        this.telefono="634872123";
+        this.grupo="Lobatos";
+        this.fecha_nacimiento =  new Date("5/12/1999");
         this.fecha_jura_bandera = new Date("2/15/2015");
         this.fecha_alta = new Date("10/30/2014");
         this.url_imagen = "img-profile.png";
@@ -181,7 +173,12 @@ public class PerfilBean {
         String fecha = df.format(fecha_alta);
         return fecha;
     }
-
+        
+    public void modificarUsuario(Usuario u) throws ScoutException{
+        negocio.modificarUsuario(u);
+    }
+    
+    
     public String clickLinkModificar() {
         return "modificarPerfil.xhtml";
     }
